@@ -1,2 +1,3 @@
-# smartphones-sales-web-service
+# Smartphones-Sales-Web-Service
 SpringBoot RESTful Project
+
