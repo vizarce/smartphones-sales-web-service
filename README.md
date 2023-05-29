@@ -1,2 +1,2 @@
 # smartphones-sales-web-service
-SpringBoot Project
+SpringBoot RESTful Project
