@@ -30,7 +30,7 @@ public class ManagerServiceImplementation implements ManagerService {
             throw new IllegalStateException("Manager with Id = " + id + " does not exist.");
         return optionalManager.get();
     }
-
+    
     @Override
     public Manager addManager(Manager manager) {
         Optional<Manager> optionalManager = managerRepository.findById(manager.getId());
