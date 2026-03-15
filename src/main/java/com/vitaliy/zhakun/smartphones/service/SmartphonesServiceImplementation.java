@@ -8,9 +8,18 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @Service
 public class SmartphonesServiceImplementation implements SmartphoneService {
+
+    private static final Set<String> ALLOWED_SORT_FIELDS = Set.of(
+            "id", "brand", "model", "subModel", "chipset", "processorGHz",
+            "romGb", "ramGb", "batteryMah", "rearCameraMp", "frontCameraMp",
+            "displaySizeInch", "weightOunces", "length", "height", "width",
+            "originalPriceUsd", "goldMembersDiscount", "silverMembersDiscount",
+            "rating", "quantity"
+    );
 
     private final SmartphoneRepository smartphoneRepository;
 
@@ -26,6 +35,8 @@ public class SmartphonesServiceImplementation implements SmartphoneService {
 
     @Override
     public List<Smartphone> getAllSmartphonesSorted(String order) {
+        if (!ALLOWED_SORT_FIELDS.contains(order))
+            throw new IllegalStateException("Invalid sort field: " + order);
         Sort sort = Sort.by(order);
         return smartphoneRepository.findAll(sort);
     }
