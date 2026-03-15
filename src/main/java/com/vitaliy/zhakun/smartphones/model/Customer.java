@@ -24,7 +24,7 @@ public class Customer {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.email = "vizarce@gmail.com"; //email;
+        this.email = email;
         this.ballance = ballance;
         this.silverMember = silverMember;
         this.goldMember = goldMember;

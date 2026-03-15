@@ -34,7 +34,7 @@ public class CustomerServiceImplementation implements CustomerService {
     @Override
     public Customer addCustomer(Customer customer) {
         Optional<Customer> optionalCustomer = customerRepository.findById(customer.getId());
-        if (optionalCustomer.isEmpty())
+        if (optionalCustomer.isPresent())
             throw new IllegalStateException("Customer with Id = " + customer.getId() + " is already exist in Database.");
         return customerRepository.save(customer);
     }
